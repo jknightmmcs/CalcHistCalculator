@@ -1,11 +1,13 @@
 #ifndef CALCHISTCALCULATOR_H
 #define CALCHISTCALCULATOR_H
 
+#include <QMainWindow>
+
 #include "opencv2/objdetect/objdetect.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
 
-#include <QMainWindow>
+#include <histcalcthread.h>
 
 using namespace cv;
 
@@ -21,7 +23,10 @@ public:
     explicit CalcHistCalculator(QWidget *parent = 0);
     ~CalcHistCalculator();
 
+
 private slots:
+    void drawHistogram();
+
     void on_actionOpen_triggered();
 
     void on_actionExit_triggered();
@@ -37,6 +42,8 @@ private:
     Mat image, histogram;
     QPixmap image_pix, hist_pix;
     bool image_ready = false, histogram_ready = false;
+
+    HistCalcThread* thread = nullptr;
 };
 
 #endif // CALCHISTCALCULATOR_H

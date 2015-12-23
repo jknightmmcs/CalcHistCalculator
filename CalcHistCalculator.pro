@@ -15,9 +15,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        calchistcalculator.cpp
+        calchistcalculator.cpp \
+    histcalcthread.cpp
 
-HEADERS  += calchistcalculator.h
+HEADERS  += calchistcalculator.h \
+    histcalcthread.h
 
 FORMS    += calchistcalculator.ui
 
